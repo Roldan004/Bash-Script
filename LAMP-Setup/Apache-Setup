@@ -33,7 +33,7 @@ sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 sudo su
 cd /etc/apache2/sites-available
 rm 000-default.conf
-wget https://raw.githubusercontent.com/ne018/dreyops/master/ops/apache2/sites-available/v2-000-config.conf -O 000-default.conf
+wget https://github.com/Roldan004/Bash-Script/blob/main/LAMP-Setup/apache-config.conf -O 000-default.conf
 a2enmod rewrite
 
 # restart webserver
@@ -41,7 +41,7 @@ service apache2 restart
 
 # create mysql user
 mysql -u root -p <<MY_QUERY
-CREATE USER 'user'@'%' identified by 'password';
+CREATE USER 'admin'@'%' identified by 'password';
 GRANT ALL PRIVILEGES ON *.* TO 'user'@'%';
 FLUSH PRIVILEGES;
 MY_QUERY
