@@ -1,0 +1,110 @@
+1  ifconfig
+    2  exit
+    3  ifconfig
+    4  sudo nano /etc/hosts
+    5  sudo apt install unzip curl git -y
+    6  sudo add-apt-repository universe
+    7  sudo apt update && sudo apt upgrade -y
+    8  ls
+    9  hid=stiry
+   10  history
+   11  sudo apt install nginx -y
+   12  history
+   13  sudo apt install mysql-server mysql-client -y
+   14  ls
+   15  sudo mysql -u root -p
+   16  sudo apt install php7.2 -y
+   17  sudo apt-get purge apache2 -y
+   18  sudo apt-get autoremove -y
+   19  sudo apt install php7.2-bcmath php7.2-curl php7.2-dev php7.2-fpm php7.2-gd php7.2-intl php7.2-mbstring php7.2-xml php7.2-zip php7.2-mysql php-cli libapache2-mod-php php7.2-dev php7.2-fpm -y
+   20  ls
+   21  history
+   22  curl -sS https://getcomposer.org/installer -o composer-setup.php
+   23  sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+   24  ifconfig
+   25  cd /etc/nginx/sites-available/
+   26  ls
+   27  cp default roldan-laravel.com.conf
+   28  sudo cp default roldan-laravel.com.conf
+   29  ls
+   30  sudo rm default 
+   31  cd ..
+   32  ls
+   33  cd sites-enabled/
+   34  ls
+   35  sudo rm default 
+   36  ls
+   37  cd ..
+   38  ls
+   39  cd sites-available/
+   40  ls
+   41  sudo nano roldan-laravel.com.conf 
+   42  ls
+   43  sudo nginx -t
+   44  cd
+   45  ls
+   46  sudo ln -s /etc/nginx/sites-available/roldan-laravel.com.conf /etc/nginx/sites-available/roldan-laravel.com.conf
+   47  sudo ln -s /etc/nginx/sites-available/roldan-laravel.com.conf /etc/nginx/sites-enabled/roldan-laravel.com.conf
+   48  sudo nginx -t
+   49  sudo service nginx restart
+   50  sudo nano /etc/nginx/sites-available/roldan-laravel.com.conf 
+   51  sudo nano /etc/hosts
+   52  ls
+   53  cd /etc/nginx/sites-available/
+   54  ls
+   55  exit
+   56  ls
+   57  sudo install certbot -y
+   58  sudo apt install certbot -y
+   59  ls
+   60  sudo add-apt-repository ppa:certbot/certbot
+   61  sudo apt install python-certbot-nginx
+   62  sudo certbot --nginx -d roldan-laravel.com
+   63  ls
+   64  sudo nano /etc/hosts
+   65  sudo service nginx restart
+   66  sudo nano /etc/hosts
+   67  sudo nginx -t
+   68  sudo service nginx restart
+   69  ifconfig
+   70  ls
+   71  sudo git clone https://github.com/laravel/laravel.git
+   72  ls
+   73  cd laravel/
+   74  ls
+   75  git branch
+   76  git branch -r
+   77  sudo git checkout origin/7.x 
+   78  sudo git checkout -b 7.x
+   79  git branch -l
+   80  ls
+   81  cd
+   82  clear
+   83  ls
+   84  sudo cp -rv /var/www/html/
+   85  sudo cp -rv laravel /var/www/html/
+   86  clear
+   87  ls
+   88  sudo rm composer-setup.php laravel/
+   89  sudo rm -rf composer-setup.php laravel/
+   90  ls
+   91  cd /var/www/html/
+   92  cd
+   93  sudo nano /etc/nginx/sites-available/roldan-laravel.com.conf 
+   94  cd /var/www/html/laravel/
+   95  ls
+   96  ls -al
+   97  sudo chown -R www-data:www-data .
+   98  sudo chmod -R 775 .
+   99  ls -al
+  100  sudo composer create-project --prefer-dist laravel/laravel project
+  101  sudo composer install
+  102  sudo cp .env.example .env
+  103  sudo php artisan key:generate
+  104  cd /etc/nginx/sites-enabled/
+  105  ls
+  106  cd
+  107  sudo nginx -t
+  108  sudo service nginx restart
+  109  ifconfig
+  110  history
