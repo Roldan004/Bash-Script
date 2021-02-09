@@ -1,0 +1,33 @@
+#update os..
+sudo apt update
+sudo apt upgrade -y
+
+#install client
+sudo apt install nfs-common
+
+#show mount
+show mount -e 172.25.1.54
+
+#TEMPORARY#
+#make folder
+sudo mkdir /mnt/public
+sudo mkdir /mnt/private
+
+#mount
+sudo mount -t nfs 172.25.1.53:/public /mnt/public     (option) umount /mnt/public 
+sudo mount -t nfs 172.25.1.53:/private .mnt/private            umount /mnt/private
+#TEMPORARY#
+
+#show status
+mount
+
+
+#PERMANENT
+sudo nano /etc /fstab
+
+        > 172.25.1.53:/public   /mnt/public   nfs   defaults,_netdev 0 0  
+        > 72.25.1.53:/private   /mnt/private   nfs   defaults,_netdev 0 0
+        
+#mount permanent all
+sudo mount -a
+ 
