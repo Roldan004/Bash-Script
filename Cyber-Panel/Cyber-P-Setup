@@ -1,0 +1,50 @@
+#https://www.youtube.com/watch?v=FtL0g-wJWms
+Centos 7.x
+
+sh <(curl https://cyberpanel.net/install.sh || wget -O - https://cyberpanel.net/install.sh)
+
+1
+1
+yes (add hostname: ?, Database;?, Username: ?, Password:?, Port: ?)
+d
+y
+y
+Y
+
+..Installing
+
+restart
+
+login in cyberpanel
+user: admin
+pw:   1234567
+
+..Edit the profile
+
+..create website
+
+select package : default
+
+Select Owner : admin
+
+Domain Name :
+
+Email :
+
+Select PHP : php7.2
+
+Additional Features : add all
+
+..manage SSL
+
+add SSL
+
+
+
+
+
+
+
+
+
+
