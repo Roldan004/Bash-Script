@@ -1,0 +1,33 @@
+#update os..
+sudo apt update
+sudo apt upgrade -y
+
+#install server
+sudo apt install nfs-kernel-server -y
+
+
+#create public and private directory
+sudo mkdir /puclic
+sudo mkdir /private
+
+#set permission
+sudo chmod 755 /public
+sudo chmod 777 /private
+
+
+#config file
+sudo nano /etc/exports
+
+    > /puclic *(ro,sync,no_subtree_check)
+    > /private 172.25.1.54(ro,sync,no_subtree_check)
+    > save
+
+#export
+sudo exportfs -arvf
+
+#restart
+sudo systemctl start kernel-nfs-server
+sudo systemctl enable kernel-nfs-server
+sudo systemctl status kernel-nfs-server
+
+
