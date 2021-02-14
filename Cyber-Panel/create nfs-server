@@ -1,0 +1,212 @@
+1  htop
+    2  ifconfig
+    3  apt install net-tools
+    4  ifconfig
+    5  clar
+    6  clear
+    7  ls
+    8  clear
+    9  df -h
+   10  ls
+   11  ls -lah  snap/
+   12  ls -lah snap/
+   13  df -h
+   14  umount s3fs
+   15  df -h
+   16  nano /etc/fstab
+   17  df -h
+   18  apt update && apt upgrade -y && apt install -y nfs-kernel-server s3fs
+   19  mkfs.ext4 "/dev/disk/by-id/scsi-0Linode_Volume_KFLIX-Block-Storage"
+   20  mkfs.ext4 "/dev/disk/by-id/scsi-0Linode_Volume_KFLIX-Block-Storage" 20Gib
+   21  mkfs.ext4 "/dev/disk/by-id/scsi-0Linode_Volume_KFLIX-Block-Storage"
+   22  df -h
+   23  mkfs.ext4 "/dev/disk/by-id/scsi-0Linode_Volume_KFLIX-Block-Storage"
+   24  df -h
+   25  mkdir /data
+   26  mkdir "/data"
+   27  df -h
+   28  mount "/dev/disk/by-id/scsi-0Linode_Volume_KFLIX-Block-Storage" "/data"
+   29  df -h
+   30  nano /etc/fstab
+   31  mount -a
+   32  df -h
+   33  whatis s3fs
+   34  systemctl enable nfs-kernel-server
+   35  mkdir s3data
+   36  nano /etc/passwd-s3fs
+   37  chmod 0600 /etc/passwd-s3fs
+   38  nano /etc/fstab
+   39  mount -a
+   40  ls
+   41  nano /etc/fstab 
+   42  mount -a
+   43  df -h
+   44  cp -rv /root/s3data /data
+   45  df -h
+   46  rm -v /data/*
+   47  rm -rv /data/*
+   48  df -h
+   49  cp -rv /root/s3data/* /data/
+   50  ifconfig
+   51  nano /etc/exports
+   52  service nfs-kernel-server reload
+   53  df -h
+   54  nano /etc/fstab 
+   55  df -h
+   56  mount -a
+   57  cp -rv /root/s3data/* /data/
+   58  ls -alh /data
+   59  ls -alh /
+   60  df -h
+   61  cp -rv /root/s3data/* /data/
+   62  chmod -v 777 /data/*
+   63  df -h
+   64  umount s3fs
+   65  mount -a
+   66  df -h
+   67  cp -rv s3data/* /data/
+   68  ls /data/s3data
+   69  ls --help
+   70  ls -d /data/
+   71  cd /data
+   72  ls -d
+   73  cp -rv /root/s3data/* $(pwd)
+   74  df -h
+   75  cat /etc/fstab 
+   76  ls s3data/d8118e76d78518ff88d0eda946602fadbf331dc0a4420123ef517241cad910a4.jpg
+   77  file /data/d8118e76d78518ff88d0eda946602fadbf331dc0a4420123ef517241cad910a4.jpg
+   78  ls -alh /data/d8118e76d78518ff88d0eda946602fadbf331dc0a4420123ef517241cad910a4.jpg
+   79  ls -alh /data/
+   80  ls /var/log
+   81  dmesg
+   82  df -h
+   83  ls /data
+   84  ls -lah /data
+   85  ls -alh
+   86  chown -Rv 1000:1000 /data/*
+   87  chmod -Rv 0777 /data/
+   88  cp -v s3data/0be542b6808cd478831e1976a532978c63a52f1da9a46ee760fb3cbb1e2f03ae.jpg /data/
+   89  file s3data/0be542b6808cd478831e1976a532978c63a52f1da9a46ee760fb3cbb1e2f03ae.jpg
+   90  file /data/0be542b6808cd478831e1976a532978c63a52f1da9a46ee760fb3cbb1e2f03ae.jpg
+   91  df -h
+   92  du -sh /data/0be542b6808cd478831e1976a532978c63a52f1da9a46ee760fb3cbb1e2f03ae.jpg
+   93  du -sh /data/*
+   94  file /data/0be542b6808cd478831e1976a532978c63a52f1da9a46ee760fb3cbb1e2f03ae.jpg
+   95  ls
+   96  ls -alh /data/
+   97  file /data/d91a2cb797f07572aabe91217a2b0a8520017eef76506eb57bb4ef26a4109fb1.jpg
+   98  file /s3data/0834c4243b0bc30d489099cd41e3a39388b489dc425a9ee445f291d2e1e67fc8.jpg
+   99  file /data/0834c4243b0bc30d489099cd41e3a39388b489dc425a9ee445f291d2e1e67fc8.jpg
+  100  ls /data/ | more
+  101  file /data/0090c501002c185c4e88bf5f25db4c8d1ffffe2b282c9a3588d08f5e524a2832.jpg
+  102  file /data/GEThttps://kflixvideo.goadminops.com/file/serve/18503.jfif
+  103  [HTTP/1.1 406 Not Acceptable 1698ms]
+  104  file /data/1bc1dfd831f273d2b81b8a2f60f8ff566692f0daab501808e69a2df2871d1b6d/jfif
+  105  file /data/1bc1dfd831f273d2b81b8a2f60f8ff566692f0daab501808e69a2df2871d1b6d.jfif
+  106  more /data/1bc1dfd831f273d2b81b8a2f60f8ff566692f0daab501808e69a2df2871d1b6d.jfif
+  107  file /data/3d7ae886a966503a7bee7c5b42be15d9cd0bea467c68fd9844f100cb4949e600.jpg
+  108  cp -rv /s3data/* /data/
+  109  nano /etc/exports
+  110  service nfs-kernel-server reload
+  111  ls -alh /data
+  112  mv -v /data /root/
+  113  df -h
+  114  service nfs-kernel-server stop
+  115  mv -v /data /root/
+  116  ls
+  117  df -h
+  118  umount s3data 
+  119  mkdir /s3data
+  120  nano /etc/fstab 
+  121  mount -a
+  122  ls /s3data/
+  123  ls -lah /s3data/
+  124  nano /etc/exports
+  125  service nfs-kernel-server reload
+  126  service nfs-kernel-server restart
+  127  service nfs-kernel-server status
+  128  service nfs-kernel-server status
+  129  nano /etc/exports
+  130  service nfs-kernel-server restart
+  131  service nfs-kernel-server status
+  132  df -h
+  133  nano /etc/exports 
+  134  df -h
+  135  cp -rv /s3data/* /data/
+  136  ls -alh /data/
+  137  df -h
+  138  cp -rv /s3data/* /data/
+  139  history
+  
+  
+  
+  
+  
+  # /etc/export/
+  # /etc/exports: the access control list for filesystems which may be exported
+#		to NFS clients.  See exports(5).
+#
+# Example for NFSv2 and NFSv3:
+# /srv/homes       hostname1(rw,sync,no_subtree_check) hostname2(ro,sync,no_subtree_check)
+#
+# Example for NFSv4:
+# /srv/nfs4        gss/krb5i(rw,sync,fsid=0,crossmnt,no_subtree_check)
+# /srv/nfs4/homes  gss/krb5i(rw,sync,no_subtree_check)
+#
+
+
+## KFLIX Kubelets KFLIX LoadBalancer
+/data 172.104.38.92(rw,insecure,nohide,no_root_squash)
+
+## KFLIX Kubelets
+/data 172.104.165.120(rw,insecure,nohide,no_root_squash)
+/data 139.162.18.101(rw,insecure,nohide,no_root_squash)
+/data 139.162.8.58(rw,insecure,nohide,no_root_squash)
+
+#/s3data 172.104.165.120(rw,insecure,nohide,no_root_squash)
+#/s3data 139.162.18.101(rw,insecure,nohide,no_root_squash)
+#/s3data 139.162.8.58(rw,insecure,nohide,no_root_squash)
+
+#/cyberpanel 139.162.2.72(rw,insecure,nohide,no_root_squash)
+
+
+
+
+
+# /etc/fstab# 
+
+/etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sda1 during curtin installation
+/dev/sda / ext4 defaults 0 0
+/dev/sdb none swap defaults 0 0
+
+## KFLIX Linode Block Storage 20Gib ##
+/dev/disk/by-id/scsi-0Linode_Volume_KFLIX-Block-Storage /data ext4 defaults,noatime,nofail 0 2
+
+
+## Mount automatically via /etc/fstab entry
+kflixprods3:/kflixuploads /s3data  fuse.s3fs passwd_file=/etc/passwd-s3fs,multireq_max=10,readwrite_timeout=100,retries=3,parallel_count=25,allow_other  0 0
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
