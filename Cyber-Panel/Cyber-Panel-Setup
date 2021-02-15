@@ -15,36 +15,38 @@ Y
 
 restart
 
-login in cyberpanel
-user: admin
-pw:   1234567
+#login in cyberpanel
+#user: admin
+#pw:   1234567
 
-..Edit the profile
+#..Edit the profile
 
-..create website
+#..create website
 
-select package : default
+#..select package : default
 
-Select Owner : admin
+#..Select Owner : admin
 
-Domain Name :
+#..Domain Name :
 
-Email :
+#..Email :
 
-Select PHP : php7.2
+#..Select PHP : php7.2
 
-Additional Features : add all
+#..Additional Features : add all
 
-..manage SSL
+#..manage SSL
 
-add SSL
-
-
+#..add SSL
 
 
+yum install nfs-utils
 
+#check the the mounted
+df -h
 
-
-
+===================================
+#setup nfs-server >>>>>>>>>>>>>>>>>
+===================================
 
 
