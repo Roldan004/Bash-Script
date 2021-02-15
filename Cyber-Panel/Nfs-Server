@@ -1,3 +1,7 @@
+#https://www.tecmint.com/install-nfs-server-on-ubuntu/
+
+
+
 #update os..
 sudo apt update
 sudo apt upgrade -y
@@ -6,28 +10,39 @@ sudo apt upgrade -y
 sudo apt install nfs-kernel-server -y
 
 
-#create public and private directory
-sudo mkdir /puclic
-sudo mkdir /private
+#Create an NFS Export Directory
+#The second step will be creating a directory that will be shared among client systems.
+#This is also referred to as the export directory and it’s in this directory that we shall later create files which will be accessible by client systems.
+sudo mkdir -p /mnt/nfs_share
+
 
 #set permission
-sudo chmod 755 /public
-sudo chmod 777 /private
+#Since we want all the client machines to access the shared directory, remove any restrictions in the directory permissions.
+sudo chown -R nobody:nogroup /mnt/nfs_share/
+
+#set permission
+#Since we want all the client machines to access the shared directory, remove any restrictions in the directory permissions.
+sudo chmod 777 /mnt/nfs_share/
 
 
-#config file
+#config file for nfs-server
+#Grant NFS Share Access to Client Systems
 sudo nano /etc/exports
-
-    > /puclic *(ro,sync,no_subtree_check)
-    > /private 172.25.1.54(ro,sync,no_subtree_check)
+    # folder of server and IP of client
+    > /puclic *(rw,insecure,nohide,no_root_squash)
+    > /private 172.25.1.54(rw,insecure,nohide,no_root_squash)    
     > save
 
-#export
-sudo exportfs -arvf
+#config /etc/fstab for adding volume
+    # see reference in Linode Volume
 
 #restart
-sudo systemctl start kernel-nfs-server
-sudo systemctl enable kernel-nfs-server
-sudo systemctl status kernel-nfs-server
+sudo systemctl start nfs-kernel-server
+sudo systemctl enable nfs-kernel-server
+sudo systemctl status nfs-kernel-server
+
+systemctl restart nfs-kernel-server
+
+
 
 
