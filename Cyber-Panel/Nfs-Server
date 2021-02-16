@@ -42,7 +42,7 @@ sudo systemctl enable nfs-kernel-server
 sudo systemctl status nfs-kernel-server
 
 systemctl restart nfs-kernel-server
-
+systemctl restart nfs-kernel-server
 
 
 
