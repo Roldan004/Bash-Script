@@ -28,14 +28,16 @@ sudo chmod 777 /mnt/nfs_share/
 #config file for nfs-server
 #Grant NFS Share Access to Client Systems
 sudo nano /etc/exports
-    # folder of server and IP of client
+    # <NFS path> <IP of Cpanel>(permission)
     > /puclic *(rw,insecure,nohide,no_root_squash)
     > /private 172.25.1.54(rw,insecure,nohide,no_root_squash)    
     > save
 
 #config /etc/fstab for adding volume
     # see reference in Linode Volume
-
+    
+    # <IP of Cpanel> <NFS Path> <Cpanel path>    
+    
 #restart
 sudo systemctl start nfs-kernel-server
 sudo systemctl enable nfs-kernel-server
