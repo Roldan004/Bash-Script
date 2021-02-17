@@ -1,5 +1,5 @@
 #https://www.youtube.com/watch?v=FtL0g-wJWms
-Centos 7.x
+#Centos 7.x
 
 sh <(curl https://cyberpanel.net/install.sh || wget -O - https://cyberpanel.net/install.sh)
 
