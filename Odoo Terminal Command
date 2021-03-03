@@ -1,0 +1,99 @@
+    1  sudo apt update && sudo apt upgrade
+    2  hostnamectl set-hostname prod-pos-web
+    3  sudo hostnamectl set-hostname prod-pos-web
+    4  sudo update-grub
+    5  ifconfig
+    6  sudo apt install net-tools
+    7  sudo apt install nginx git  unzip   curl   php7.2   php7.2curl   php7.2dev   php7.2gd   php7.2intl   php7.2mbstring   php7.2xml   php7.2zip   php7.2mysql mysqlclient
+    8  sudo apt install nginx git  unzip   curl   php7.2   php7.2-curl   php7.2-dev   php7.2-gd   php7.2-intl   php7.2-mbstring   php7.2-xml   php7.2-zip   php7.2-mysql mysqlclient
+    9  sudo apt install nginx git  unzip   curl   php7.2   php7.2-curl   php7.2-dev   php7.2-gd   php7.2-intl   php7.2-mbstring   php7.2-xml   php7.2-zip   php7.2-mysql mysql-client
+   10  sudo apt install nginx git  unzip   curl   php7.3   php7.3-curl   php7.3-dev   php7.3-gd   php7.3-intl   php7.3-mbstring   php7.3-xml   php7.3-zip   php7.3-mysql mysql-client
+   11  sudo apt install nginx git unzip curl php7.3
+   12  sudo apt install nginx git unzip curl php
+   13  sudo apt install nginx git  unzip   curl   php7.4   php7.4-curl   php7.4-dev   php7.4-gd   php7.4-intl   php7.4-mbstring   php7.4-xml   php7.4-zip   php7.4-mysql mysql-client
+   14  sudo apt install nginx
+   15  sudo apt install nginx ssl-cert nginx-doc
+   16  sudo apt install nginx git  unzip   curl   php7.4   php7.4-curl   php7.4-dev   php7.4-gd   php7.4-intl   php7.4-mbstring   php7.4-xml   php7.4-zip   php7.4-mysql mysql-client
+   17  sudo apt install nginx git  unzip   curl mysql-client
+   18  sudo apt install zip
+   19  nano ~/.ssh/authorized_keys 
+   20  clear
+   21  ls
+   22  ls -lah
+   23  ls
+   24  clear
+   25  ls
+   26  ls /etc/
+   27  ls /etc/nginx/
+   28  sudo -s 
+   29  ls
+   30  sudo -i
+   31  ifconfig
+   32  nano .ssh/authorized_keys 
+   33  ifconfig
+   34  sudo nano ~/.ssh/authorized_keys 
+   35  clear
+   36  ls
+   37  history
+   38  clear
+   39  ls
+   40  cd /etc/apac
+   41  ls
+   42  cd /etc/nginx/
+   43  ls
+   44  cd sites-available/
+   45  ls\clear
+   46  ls
+   47  clear
+   48  ls
+   49  cd ../sites-enabled/
+   50  ls
+   51  cd ../sites-available/
+   52  clear
+   53  ls
+   54  sudo nano uspos1.foodappeti.com 
+   55  sudo nano /etc/nginx/nginx.conf 
+   56  clear
+   57  sudo nginx -t
+   58  sudo service nginx reload
+   59  sudo add-apt-repository ppa:certbot/certbot
+   60  clear
+   61  sudo apt install certbot python3-certbot-nginx
+   62  sudo certbot --nginx -d uspos1.foodappeti.com
+   63  clear
+   64  ls
+   65  sudo nginx -t
+   66  ls
+   67  sudo nano uspos1.foodappeti.com 
+   68  sudo nginx -t
+   69  sudo service nginx reload
+   70  clear
+   71  ls
+   72  history
+   73  clear
+   74  curl ifconfig.me
+   75  sudo nano .ssh/authorized_keys 
+   76  sudo .ssh/aut
+   77  clear
+   78  sudo nano .ssh/authorized_keys 
+   79  lsb_release -a
+   80  sudo apt update
+   81  sudo apt install git python3-pip build-essential wget python3-dev python3-venv python3-wheel libxslt-dev libzip-dev libldap2-dev libsasl2-dev python3-setuptools node-less
+   82  adduser odoo-user
+   83  sudo adduser odoo-user
+   84  usermod -aG sudo odoo-user
+   85  sudo usermod -aG sudo odoo-user
+   86  su - username
+   87  su - odoo-user
+   88  sudo wget https://repo.zabbix.com/zabbix/5.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.2-1+ubuntu$(lsb_release -rs)_all.deb
+   89  sudo dpkg -i zabbix-release_5.2-1+ubuntu$(lsb_release -rs)_all.deb
+   90  sudo apt update
+   91  sudo apt upgrade -y
+   92  sudo apt -y install zabbix-agent gnutls-bin
+   93  sudo nano /etc/zabbix/zabbix_agentd.psk
+   94  sudo nanonano /etc/zabbix/zabbix_agentd.conf
+   95  sudo nano /etc/zabbix/zabbix_agentd.conf
+   96  sudo systemctl enable zabbix-agent
+   97  sudo systemctl restart zabbix-agent
+   98  exit
+   99  history
