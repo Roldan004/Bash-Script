@@ -1,0 +1,50 @@
+# Add repository
+
+sudo wget https://repo.zabbix.com/zabbix/5.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.2-1+ubuntu$(lsb_release -rs)_all.deb
+
+sudo dpkg -i zabbix-release_5.2-1+ubuntu$(lsb_release -rs)_all.deb
+
+sudo apt update
+
+
+# Install Zabbix Server
+$ sudo apt install -y zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-agent
+
+
+# Change the time zone
+sudo /etc/zabbix/apache.conf
+    php_value date.timezone Asia/Manila
+    
+# Create MariaDB user and Install the zabbix database on MariaDB Server, UTF-8 Charset is required and table collate should be utf8_bin.
+
+CREATE DATABASE zabbix CHARACTER SET utf8 COLLATE utf8_bin;
+create user 'zabbix'@'%' identified BY 'administrator';
+GRANT ALL ON zabbix.* TO 'zabbix'@'%';
+FLUSH PRIVILEGES;
+
+# Go to
+cd /usr/share/doc/zabbix-server-mysql
+
+# create sql
+zcat create.sql | mysql -u zabbixuser -p zabbix
+enter password : admin
+
+# config zabbix server
+sudo nano /etc/zabbix/zabbix_server.conf
+    Edit the:
+      DBname:
+      DBUser:
+      DBPassword:
+      DBHost
+      
+3 Restart Server
+sudo systemctl restart zabbix-server.service zabbix-agent.service apache2
+sudo systemctl enable zabbix-server.service zabbix-agent.service apache2
+
+
+
+
+
+
+
+
