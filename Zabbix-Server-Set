@@ -1,48 +1,45 @@
-# update OS
+# Update System
 sudo apt update && sudo apt upgrade -y
 
-# Install Apache
-sudo apt install apache2 -y
+# Install LAMP
+sudo apt install apache2 libapache2-mod-php mariadb-server mariadb-client  -y
 
 
-#install mariaDB-server
-sudo apt install mariadb-server mariadb-client -y
+# Install PHP & PHP Modules
+sudo apt install php php-mbstring php-gd php-xml php-bcmath php-ldap php-mysql -y    
 
 
 # Add repository
-
-sudo wget https://repo.zabbix.com/zabbix/5.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.2-1+ubuntu$(lsb_release -rs)_all.deb
-
-sudo dpkg -i zabbix-release_5.2-1+ubuntu$(lsb_release -rs)_all.deb
-
+sudo wget https://repo.zabbix.com/zabbix/5.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.2-1+ubuntu18.04_all.deb
+sudo dpkg -i zabbix-release_5.2-1+ubuntu18.04_all.deb
 sudo apt update
 
 
-# Install Zabbix Server
-$ sudo apt install -y zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-agent
-
+# Install Zabbix server, frontend, agent
+sudo apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-agent -y
+     
     
 # Create MariaDB user and Install the zabbix database on MariaDB Server, UTF-8 Charset is required and table collate should be utf8_bin.
 
-CREATE DATABASE zabbix CHARACTER SET utf8 COLLATE utf8_bin;
-create user 'zabbix'@'%' identified BY 'administrator';
-GRANT ALL ON zabbix.* TO 'zabbix'@'%';
+CREATE DATABASE zabbixDB CHARACTER SET utf8 COLLATE utf8_bin;
+CREATE USER 'adminzabbix'@'localhost' identified BY 'adminzabbixpassword';
+GRANT ALL PRIVILEGES ON zabbixDB.* to 'zabbix'@'localhost';
 FLUSH PRIVILEGES;
 
 # Go to
 cd /usr/share/doc/zabbix-server-mysql
 
-# create sql
+# On Zabbix server host import initial schema and data. You will be prompted to enter your newly created password.
 zcat create.sql | mysql -u zabbixuser -p zabbix
-enter password : admin
+enter password : administrator
 
-# config zabbix server
+# Configure the database for Zabbix server
 sudo nano /etc/zabbix/zabbix_server.conf
     Edit the:
-      DBname:
-      DBUser:
-      DBPassword:
-      DBHost
+      DBname: zabbixDB
+      DBUser: adminzabbix
+      DBPassword: adminzabbixpassword
+      DBHost: Localhost
       
 
 # Change the time zone
@@ -52,10 +49,14 @@ sudo nano /etc/php/7.2/apache2/php.ini
     php_value date.timezone Asia/Manila
     
   
-sudo systemctl enable zabbix-agent
-sudo systemctl restart zabbix
+sudo systemctl restart zabbix-server zabbix-agent apache2
+sudo systemctl enable zabbix-server zabbix-agent apache2
 
+# Configure Front-End
 
+# Set up Zabbix server using the installer wizard
+# To access Zabbix installer, open your favorite browser and go to your server’s URL and append /zabbix as shown
+# http://server-ip/zabbix
 
 
 
