@@ -30,7 +30,7 @@ FLUSH PRIVILEGES;
 cd /usr/share/doc/zabbix-server-mysql
 
 # On Zabbix server host import initial schema and data. You will be prompted to enter your newly created password.
-zcat create.sql | mysql -u zabbixuser -p zabbix
+zcat create.sql | mysql -u adminzabbix -p zabbixDB
 enter password : administrator
 
 # Configure the database for Zabbix server
