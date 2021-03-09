@@ -23,7 +23,7 @@ sudo apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabb
 
 CREATE DATABASE zabbixDB CHARACTER SET utf8 COLLATE utf8_bin;
 CREATE USER 'adminzabbix'@'localhost' identified BY 'adminzabbixpassword';
-GRANT ALL PRIVILEGES ON zabbixDB.* to 'zabbix'@'localhost';
+GRANT ALL PRIVILEGES ON zabbixDB.* to 'adminzabbix'@'localhost';
 FLUSH PRIVILEGES;
 
 # Go to
