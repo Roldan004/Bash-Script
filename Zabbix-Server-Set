@@ -76,6 +76,9 @@ sudo dpkg -i zabbix-release_5.2-1+ubuntu18.04_all.deb
 # Update machine
 sudo apt update
 
+# Add Utils
+sudo apt -y install zabbix-agent gnutls-bin
+
 # Install Agent
 sudo apt install zabbix-agent -y
 
