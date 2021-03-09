@@ -86,17 +86,19 @@ sudo nano /etc/zabbix/zabbix_agentd.conf
         ServerActive:
         Hostname: 
         
+        
+# generate .psk key
+sudo psktool -u zabbix -p /etc/zabbix/zabbix_agentd.psk -s 32
+
+# permission
+sudo chmod 755 /etc/zabbix/zabbix_agentd.psk
+
+# get the key
+cat /etc/zabbix/zabbix_agentd.psk
+        
 # Start the agent service
 sudo service /etc/init.d/zabbix-agent restart
 or
 /etc/init.d/zabbix-agent restart
-
-
-
-
-
-
-
-
 
 
