@@ -1,36 +1,30 @@
-
-# Add repository
-sudo wget https://repo.zabbix.com/zabbix/5.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.2-1+ubuntu18.04_all.deb
-sudo dpkg -i zabbix-release_5.2-1+ubuntu18.04_all.deb
-
 # Update System
 sudo apt update && sudo apt upgrade -y
-
-
-# Install Zabbix server, frontend, agent
-sudo apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-agent -y
-
 
 # Install LAMP
 sudo apt install apache2 libapache2-mod-php mariadb-server mariadb-client  -y
 
 
 # Install PHP & PHP Modules
-sudo apt install php php-mbstring php-gd php-xml php-bcmath php-ldap php-mysql -y   
+sudo apt install php php-mbstring php-gd php-xml php-bcmath php-ldap php-mysql -y    
 
 
-# mysql/maridb security
- sudo mysql_secure_installation
+# Add repository
+sudo wget https://repo.zabbix.com/zabbix/5.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.2-1+ubuntu18.04_all.deb
+sudo dpkg -i zabbix-release_5.2-1+ubuntu18.04_all.deb
+sudo apt update
+
+
+# Install Zabbix server, frontend, agent
+sudo apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-agent -y
+     
     
 # Create MariaDB user and Install the zabbix database on MariaDB Server, UTF-8 Charset is required and table collate should be utf8_bin.
 
 CREATE DATABASE zabbixDB CHARACTER SET utf8 COLLATE utf8_bin;
-CREATE USER 'adminzabbix'@'%' identified BY 'adminzabbixpassword';
-GRANT ALL PRIVILEGES ON zabbixDB.* to 'adminzabbix'@'%';
+CREATE USER 'adminzabbix'@'localhost' identified BY 'adminzabbixpassword';
+GRANT ALL PRIVILEGES ON zabbixDB.* to 'zabbix'@'localhost';
 FLUSH PRIVILEGES;
-
-# restart mariadb
-sudo service mariadb restart
 
 # Go to
 cd /usr/share/doc/zabbix-server-mysql
@@ -49,7 +43,7 @@ sudo nano /etc/zabbix/zabbix_server.conf
       
 
 # Change the time zone
-sudo nano /etc/zabbix/apache.conf
+sudo /etc/zabbix/apache.conf
 # or
 sudo nano /etc/php/7.2/apache2/php.ini
     php_value date.timezone Asia/Manila
@@ -64,44 +58,44 @@ sudo systemctl enable zabbix-server zabbix-agent apache2
 # To access Zabbix installer, open your favorite browser and go to your server’s URL and append /zabbix as shown
 # http://server-ip/zabbix
 
-=================================================================================================================================================================
-# Zabbix Agent
 
-# Download the debian-package
-sudo wget https://repo.zabbix.com/zabbix/5.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.2-1+ubuntu18.04_all.deb
+================================================================================================================================================================
+ZABBIX AGENT
 
 # Install package
-sudo dpkg -i zabbix-release_5.2-1+ubuntu18.04_all.deb
-
-# Update machine
+sudo wget https://repo.zabbix.com/zabbix/5.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.2-1+ubuntu$(lsb_release -rs)_all.deb
+sudo dpkg -i zabbix-release_5.2-1+ubuntu$(lsb_release -rs)_all.deb
 sudo apt update
 
-# Add Utils
+# Install GNU
 sudo apt -y install zabbix-agent gnutls-bin
 
-# Install Agent
-sudo apt install zabbix-agent -y
-
-
-# Edit the agent configuration file and provide the details.
-sudo nano /etc/zabbix/zabbix_agentd.conf
-        Server: 
-        ServerActive:
-        Hostname: 
-        
-        
-# generate .psk key
+# Gererate pre-shared key
 sudo psktool -u zabbix -p /etc/zabbix/zabbix_agentd.psk -s 32
 
-# permission
+# Permission
 sudo chmod 755 /etc/zabbix/zabbix_agentd.psk
 
-# get the key
-cat /etc/zabbix/zabbix_agentd.psk
-        
-# Start the agent service
-sudo service /etc/init.d/zabbix-agent restart
-or
-/etc/init.d/zabbix-agent restart
+# get the PSK Code and put on zabbix server
+sudo cat /etc /zabbix/zabbix_agentd.psk
+
+# Edit the agentd configuration
+sudo nano /etc/zabbix/zabbix_agentd.conf
+
+          Server=wordpress-monitoring.lbteksystems.com
+          ServerActive=wordpress-monitoring.lbteksystems.com
+          Hostname=wisemeninsurance.ph
+
+          TLSConnect=psk
+          TLSAccept=psk
+          TLSPSKIdentity=zabbix
+          TLSPSKFile=/etc/zabbix/zabbix_agentd.psk
+
+
+# restart
+sudo service zabbix-agent restart
+
+
+
 
 
