@@ -93,9 +93,8 @@ sudo nano /etc/zabbix/zabbix_agentd.conf
 
 
 # restart
-sudo service zabbix-agent restart
-
-
+sudo systemctl stop zabbix-agent
+sudo systemctl start zabbix-agent && service zabbix-agent status
 
 
 
