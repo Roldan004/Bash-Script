@@ -73,6 +73,9 @@ sudo apt -y install zabbix-agent gnutls-bin
 # Gererate pre-shared key
 sudo psktool -u zabbix -p /etc/zabbix/zabbix_agentd.psk -s 32
 
+# Remove the zabbix on the pre-shared key
+sudo nano /etc/zabbix/zabbix_agentd.psk
+
 # Permission
 sudo chmod 755 /etc/zabbix/zabbix_agentd.psk
 
@@ -83,9 +86,11 @@ sudo cat /etc /zabbix/zabbix_agentd.psk
 sudo nano /etc/zabbix/zabbix_agentd.conf
 
           Server=wordpress-monitoring.lbteksystems.com
+          ListenIP=0.0.0.0
           ServerActive=wordpress-monitoring.lbteksystems.com
           Hostname=wisemeninsurance.ph
-
+          
+          
           TLSConnect=psk
           TLSAccept=psk
           TLSPSKIdentity=zabbix
