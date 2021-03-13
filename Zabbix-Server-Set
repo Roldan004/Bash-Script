@@ -54,6 +54,16 @@ sudo nano /etc/zabbix/zabbix_server.conf
       DBPassword: zabbix
       ListenPort: 0.0.0.0
       
+# force activate
+getenforce
+setenforce 0
+service firewalld stop
+ps ax
+
+
+stop
+start
+les /var/log/zabbix/zabbix_server.log
 
 # Change the time zone
 sudo nano /etc/zabbix/apache.conf
