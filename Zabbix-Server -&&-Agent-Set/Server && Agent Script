@@ -1,0 +1,128 @@
+# Update System
+sudo apt update && sudo apt upgrade -y
+
+# Install LAMP
+# sudo apt install apache2 libapache2-mod-php mariadb-server mariadb-client  -y
+
+
+# Install PHP & PHP Modules
+# sudo apt install php php-mbstring php-gd php-xml php-bcmath php-ldap php-mysql -y    
+
+
+# Add repository
+sudo wget https://repo.zabbix.com/zabbix/5.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.2-1+ubuntu18.04_all.deb
+sudo dpkg -i zabbix-release_5.2-1+ubuntu18.04_all.deb
+sudo apt update
+
+
+# Install Zabbix server, frontend, agent
+sudo apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-agent -y
+
+
+
+# Install MariaDB
+sudo apt install mariadb-common mariadb-server-10.1 mariadb-client-10.1 -y
+ 
+# Config Remotely
+mysql_secure_installation
+# Y > n > Y > Y
+
+
+# allow bind address = 0.0.0.0
+sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+
+
+# Create MariaDB user and Install the zabbix database on MariaDB Server, UTF-8 Charset is required and table collate should be utf8_bin.
+sudo mysql u -root -p
+CREATE DATABASE zabbix CHARACTER SET utf8 COLLATE utf8_bin;
+CREATE USER 'zabbix'@'localhost' identified BY 'zabbix';
+GRANT ALL PRIVILEGES ON zabbix.* to 'zabbix'@'localhost';
+FLUSH PRIVILEGES;
+
+# Go to
+cd /usr/share/doc/zabbix-server-mysql
+
+# On Zabbix server host import initial schema and data. You will be prompted to enter your newly created password.
+zcat create.sql | mysql -u zabbix -p zabbix
+enter password : zabbix
+
+# Configure the database for Zabbix server
+sudo nano /etc/zabbix/zabbix_server.conf
+    Edit the:
+      DBname: zabbix
+      DBUser: zabbix
+      DBPassword: zabbix
+      ListenPort: 0.0.0.0
+      
+# force activate
+getenforce
+setenforce 0
+service firewalld stop
+ps ax
+
+
+stop
+start
+les /var/log/zabbix/zabbix_server.log
+
+# Change the time zone
+sudo nano /etc/zabbix/apache.conf
+# or
+sudo nano /etc/php/7.2/apache2/php.ini
+    php_value date.timezone Asia/Manila
+    
+  
+sudo systemctl restart zabbix-server zabbix-agent apache2
+sudo systemctl enable zabbix-server zabbix-agent apache2
+sudo systemctl status zabbix-server zabbix-agent apache2
+
+# Configure Front-End
+
+# Set up Zabbix server using the installer wizard
+# To access Zabbix installer, open your favorite browser and go to your server’s URL and append /zabbix as shown
+# http://server-ip/zabbix
+
+
+================================================================================================================================================================
+ZABBIX AGENT
+
+# Install package
+sudo wget https://repo.zabbix.com/zabbix/5.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.2-1+ubuntu$(lsb_release -rs)_all.deb
+sudo dpkg -i zabbix-release_5.2-1+ubuntu$(lsb_release -rs)_all.deb
+sudo apt update
+
+# Install GNU
+sudo apt -y install zabbix-agent gnutls-bin
+
+# Gererate pre-shared key
+sudo psktool -u zabbix -p /etc/zabbix/zabbix_agentd.psk -s 32
+
+# Remove the zabbix on the pre-shared key
+sudo nano /etc/zabbix/zabbix_agentd.psk
+
+# Permission
+sudo chmod 755 /etc/zabbix/zabbix_agentd.psk
+
+# get the PSK Code and put on zabbix server
+sudo cat /etc /zabbix/zabbix_agentd.psk
+
+# Edit the agentd configuration
+sudo nano /etc/zabbix/zabbix_agentd.conf
+
+          Server=wordpress-monitoring.lbteksystems.com
+          ListenIP=10050
+          ServerActive=wordpress-monitoring.lbteksystems.com
+          Hostname=wisemeninsurance.ph
+          
+          
+          TLSConnect=psk
+          TLSAccept=psk
+          TLSPSKIdentity=zabbix
+          TLSPSKFile=/etc/zabbix/zabbix_agentd.psk
+
+
+# restart
+sudo systemctl stop zabbix-agent
+sudo systemctl start zabbix-agent && service zabbix-agent status
+
+
