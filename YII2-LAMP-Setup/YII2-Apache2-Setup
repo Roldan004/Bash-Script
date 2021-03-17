@@ -69,8 +69,8 @@ Vagrant.configure("2") do |config|
     # chmod & chown
     echo 'file permissions and group/users..'
     cd /var/www/html
-    sudo chmod -R 775 advanced
-    sudo chown -R www-data:www-data advanced
+    sudo chmod -R 775 /var/www/html/advanced
+    sudo chown -R www-data:www-data /var/www/html/advanced
 
     # replace config
     echo 'setup apache2 config for yii2..'
@@ -78,7 +78,7 @@ Vagrant.configure("2") do |config|
       cd /etc/apache2/sites-available
     rm 000-default.conf
     wget https://raw.githubusercontent.com/ne018/dreyops/master/ops/webframeworks/Yii/yii2-000-default.conf -O 000-default.conf
-    a2ensite
+    a2enmod rewrite
     
     #note: put comment the rewrite before ssl in apache2 configuration
     
