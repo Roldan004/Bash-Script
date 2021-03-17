@@ -56,13 +56,13 @@ chmod -R 775 /var/www/html/laravel
 cd /var/www/html/laravel
 
 # for migration or fresh laravel project
-mv .env.example .env
+cp .env.example .env
 
 # generate base64 keys
 php artisan key:generate
 
 # edit .env APP_KEY looks something like this
-APP_KEY=base64:HFdS7c9rhDp+AeHu7kc2OLBPuxHqq2BQ/1gfFWEpoAk=
+# APP_KEY=base64:HFdS7c9rhDp+AeHu7kc2OLBPuxHqq2BQ/1gfFWEpoAk=
 
 # dont forget to restart webserver service
 sudo a2enmod rewrite
