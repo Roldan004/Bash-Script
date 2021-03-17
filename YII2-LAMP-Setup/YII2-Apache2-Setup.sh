@@ -73,7 +73,6 @@ Vagrant.configure("2") do |config|
 
     # chmod & chown
     echo 'file permissions and group/users..'
-    cd /var/www/html
     sudo chmod -R 775 /var/www/html/advanced
     sudo chown -R www-data:www-data /var/www/html/advanced
 
@@ -102,7 +101,7 @@ Vagrant.configure("2") do |config|
     php init > 0 > yes
    
     #Config the main-local.php
-    #sudo nano common/config/main-local.ph
+    #sudo nano common/config/main-local.php
 
 
     # restart webserver
