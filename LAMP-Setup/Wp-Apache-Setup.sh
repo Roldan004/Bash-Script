@@ -49,6 +49,7 @@ service apache2 restart
 
 # create mysql user
 mysql -u root -p <<MY_QUERY
+create database wordpressdb;
 CREATE USER 'admin'@'%' identified by 'password';
 GRANT ALL PRIVILEGES ON *.* TO 'user'@'%';
 FLUSH PRIVILEGES;
