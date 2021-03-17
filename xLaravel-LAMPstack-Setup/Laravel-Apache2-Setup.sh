@@ -1,6 +1,7 @@
 
  
-#provisioning Laravel 5.6 Bionic64
+#author  rorudan
+#deployed  03172021-1754 
 
 sudo apt update
 sudo apt upgrade -y
