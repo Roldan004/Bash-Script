@@ -38,8 +38,8 @@ unzip ci3.zip
 mv bcit-ci-CodeIgniter-* ci_proj
 
 sudo mv ci_proj /var/www/html
-sudo chmod -R 775 ci_proj
-sudo chown -R www-data:www-data ci_proj
+sudo chmod -R 775 /var/www/html/ci_proj
+sudo chown -R www-data:www-data /var/www/html/ci_proj
 
 # replace config
 echo 'setup apache2 config for codeigniter..'
