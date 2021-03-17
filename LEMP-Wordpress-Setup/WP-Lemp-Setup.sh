@@ -47,7 +47,7 @@ chown -R www-data:www-data /var/www/html/wordpress
 
 cd /etc/nginx/sites-available
 rm default
-wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/LAMP-Setup/wp-apache-000-default.conf -O 000-default.conf
+wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/LEMP-Wordpress-Setup/wp-lemp.conf -O 000-default.conf
 cd ..
 sudo rm sites-enabled/default
 cd
