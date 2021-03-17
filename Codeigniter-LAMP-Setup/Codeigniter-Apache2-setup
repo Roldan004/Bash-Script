@@ -1,6 +1,6 @@
 #!/bin/sh
-# author: Rorudan
-# deployed 03172021
+# author: t4k4mata
+# deployed 09032020-1306
 
 echo "preparing..."
 sudo apt update -y
@@ -46,7 +46,7 @@ echo 'setup apache2 config for codeigniter..'
 sudo su
 cd /etc/apache2/sites-available
 rm 000-default.conf
-https://raw.githubusercontent.com/Roldan004/Bash-Script/main/Codeigniter-LAMP-Setup/conigniter.conf?token=AR4IM3F7JFPMF4GCVWJRBALAKHBME -O 000-default.conf
+wget https://raw.githubusercontent.com/ne018/dreyops/master/ops/webframeworks/codeigniter/codeigniter-000-default.conf -O 000-default.conf
 a2enmod rewrite
 
 # restart webserver
