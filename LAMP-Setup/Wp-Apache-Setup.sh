@@ -1,5 +1,5 @@
-#date: 09072020_0018
-#author: takamata
+#date: 03172021-1745
+#author: rorudan
 
 
 
@@ -31,9 +31,17 @@ sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 # replace config in webserver
 sudo su
+wget https://wordpress.org/latest.tar.gz
+tar -xzvf latest.tar.gz
+
+mv wordpress /var/www/html/
+chmod -R 775 /var/www/html/wordpress
+chown -R www-data:www-data /var/www/html/wordpress
+
+
 cd /etc/apache2/sites-available
 rm 000-default.conf
-wget https://github.com/Roldan004/Bash-Script/blob/main/LAMP-Setup/apache-config.conf -O 000-default.conf
+wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/LAMP-Setup/wp-apache-000-default.conf -O 000-default.conf
 a2enmod rewrite
 
 # restart webserver
