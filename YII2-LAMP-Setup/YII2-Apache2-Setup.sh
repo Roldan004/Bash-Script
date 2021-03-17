@@ -6,7 +6,12 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.network "public_network"
   config.vm.provision "shell", inline: <<-SHELL
+  
+  ======================================================
+  
     #LAMP Stack for Yii2
+    #Author  rorudan
+    #Deployed   03172021-1958
 
     echo 'updating...'
     sudo apt update -y
@@ -37,8 +42,8 @@ Vagrant.configure("2") do |config|
 
     #deb conf
     echo export DEBIAN_FRONTEND="noninteractive..."
-    sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password abc123"
-    sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password abc123"
+    sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password admin"
+    sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password admin"
 
     # mysql
     echo 'mysql installation for client and server...'
@@ -89,27 +94,32 @@ Vagrant.configure("2") do |config|
         
     #note: uncomment the configuration file
     
+    
+    cd /var/www/html/advanced
+    
     #config the yii2 file
     #cd /var/www/html/advanced
-    #sudo php init   <yes>
-    
+    php init > 0 > yes
+   
     #Config the main-local.php
-    #sudo nano common/config/main-local.php
+    #sudo nano common/config/main-local.ph
+
 
     # restart webserver
     service apache2 restart
     
     
     # create mysql user
-    mysql -u root -p$abc123 <<MY_QUERY
-    CREATE USER 'user'@'%' identified by 'password';
-    GRANT ALL PRIVILEGES ON *.* TO 'user'@'%';
-    FLUSH PRIVILEGES;
-    MY_QUERY
+    mysql -uroot -p'admin' -e "create database yii2advanced;"
+    mysql -uroot -p'admin' -e "grant all privileges on *.* to root@localhost identified by '';"
+    
+   service mysql restart
     
     #start site
     
-    #sudo /etc/init.d/apache2 restart.
+    sudo /etc/init.d/apache2 restart.
+    service apache2 restart
+    
     
     #a2enmod rewrite
 
