@@ -77,7 +77,7 @@ Vagrant.configure("2") do |config|
     sudo su
       cd /etc/apache2/sites-available
     rm 000-default.conf
-    wget https://raw.githubusercontent.com/ne018/dreyops/master/ops/webframeworks/Yii/yii2-000-default.conf -O 000-default.conf
+    wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/YII2-LAMP-Setup/Yii2-Lamp-000-default.conf -O 000-default.conf
     a2enmod rewrite
     
     #note: put comment the rewrite before ssl in apache2 configuration
