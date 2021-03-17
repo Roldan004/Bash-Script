@@ -1,0 +1,61 @@
+root@wordpress-monitoring:~# history
+    1  apt update && apt upgrade -y
+    2  # wget https://repo.zabbix.com/zabbix/5.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.2-1+ubuntu18.04_all.deb
+    3  ls
+    4  lwget https://repo.zabbix.com/zabbix/5.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.2-1+ubuntu18.04_all.deb
+    5  wget https://repo.zabbix.com/zabbix/5.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.2-1+ubuntu18.04_all.deb
+    6  ls
+    7  dpkg -i zabbix-release_5.2-1+ubuntu18.04_all.deb
+    8  apt update
+    9  # apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-agent
+   10  apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-agent
+   11  nano /etc/zabbix/apache.conf
+   12  l
+   13  ls
+   14  sudo systemctl start mariadb
+   15  sudo systemctl enable mariadb  
+   16  sudo mysql_secure_installation
+   17  mysql -u root -p
+   18  zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | mysql -uzabbix -p zabbix
+   19  mysql -u root -p
+   20  nano /etc/zabbix/zabbix_server.conf
+   21  systemctl restart zabbix-server zabbix-agent apache2
+   22  systemctl enable zabbix-server zabbix-agent apache2
+   23  systemctl status zabbix-server zabbix-agent apache2
+   24  ifconfig
+   25  hostname
+   26  tail -f /var/log/zabbix/zabbix_server.log 
+   27  systemctl restart zabbix-server zabbix-agent apache2
+   28  systemctl status zabbix-server zabbix-agent apache2
+   29  tail -f /var/log/zabbix/zabbix_server.log 
+   30  ifconfig
+   31  tail -f /var/log/zabbix/zabbix_server.log 
+   32  systemctl restart zabbix-server zabbix-agent apache2
+   33  tail -f /var/log/zabbix/zabbix_server.log 
+   34  ping -c 3 192.46.228.211
+   35  nano /etc/zabbix/zabbix_server.conf
+   36  systemctl restart zabbix-server zabbix-agent apache2
+   37  systemctl status zabbix-server zabbix-agent apache2
+   38  tail -f /var/log/zabbix/zabbix_server.log 
+   39  nano /etc/zabbix/zabbix_server.conf
+   40  tail -f /var/log/zabbix/zabbix_server.log 
+   41  nano /etc/zabbix/zabbix_server.conf
+   42  systemctl restart zabbix-server zabbix-agent apache2
+   43  tail -f /var/log/zabbix/zabbix_server.log 
+   44  nano /etc/zabbix/zabbix_server.conf
+   45  systemctl restart zabbix-server zabbix-agent apache2
+   46  tail -f /var/log/zabbix/zabbix_server.log 
+   47  ping -c 3 52.221.209.25
+   48  sudo /usr/bin/nmap -O 52.221.209.25
+   49  sudo apt install nmap
+   50  sudo /usr/bin/nmap -O 52.221.209.25
+   51  nc -v -z 52.221.209.25 10050
+   52  tail -f /var/log/zabbix/zabbix_server.log 
+   53  exit
+   54  ifconfig
+   55  tail -f /var/log/zabbix/zabbix_server.log 
+   56  systemctl status zabbix-server zabbix-agent apache2
+   57  systemctl restart zabbix-server zabbix-agent apache2
+   58  systemctl status zabbix-server zabbix-agent apache2
+   59  tail -f /var/log/zabbix/zabbix_server.log 
+   60  history
