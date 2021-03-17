@@ -23,14 +23,6 @@ extension=mcrypt.so
 # mysql server / client
 sudo apt install mysql-server mysql-client -y
 
-# create user for remote
-create user 'hivedevs'@'%' identified by 'hive1234';
-
-# grant privileges
-grant all privileges on *.* to 'hivedevs'@'%';
-
-# immediate apply
-flush privileges
 
 # downloading & installing composer for php
 cd ~
@@ -41,13 +33,11 @@ sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 # choose type of deployment u want
 
 # deploy laravel via git
-git clone https://github.com/laravel/laravel.git
-
-# deploy laravel via composer
-composer create-project --prefer-dist laravel/laravel project
-
-# install some dependencies for the project
-composer install
+sudo git clone https://github.com/laravel/laravel.git
+cd laravel
+sudo git checkout -b origin/7.x
+cd
+mv laravel /var/www/html/
 
 # proper permissions for laravel files
 chown -R www-data:www-data /var/www/html/laravel
@@ -55,8 +45,19 @@ chmod -R 775 /var/www/html/laravel
 
 cd /var/www/html/laravel
 
+
+# deploy laravel via composer
+sudo su
+composer create-project --prefer-dist laravel/laravel project
+
+
+# install some dependencies for the project
+composer install
+
+
 # for migration or fresh laravel project
 cp .env.example .env
+
 
 # generate base64 keys
 php artisan key:generate
