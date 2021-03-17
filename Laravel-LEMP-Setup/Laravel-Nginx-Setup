@@ -48,6 +48,15 @@ sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 # choose type of deployment u want (branch 7.x)
 # deploy laravel via git
 sudo git clone https://github.com/laravel/laravel.git
+cd laravel
+sudo git checkout -b origin/7.x
+cd
+
+mv laravel /var/www/html
+
+# proper permissions for laravel files
+chmod -R 775 /var/www/html/laravel
+chown -R www-data:www-data /var/www/html/laravel
 
 #go to file /var/
 
@@ -57,9 +66,7 @@ sudo composer create-project --prefer-dist laravel/laravel project
 # install some dependencies for the project
 sudo composer install
 
-# proper permissions for laravel files
-chmod -R 775 /var/www/html/laravel
-chown -R www-data:www-data /var/www/html/laravel
+
 
 #config nginx
 #sudo ln -s /etc/nginx/sites-available/ .conf
