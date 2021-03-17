@@ -65,6 +65,13 @@ php artisan key:generate
 # edit .env APP_KEY looks something like this
 # APP_KEY=base64:HFdS7c9rhDp+AeHu7kc2OLBPuxHqq2BQ/1gfFWEpoAk=
 
+
+
+cd /etc/apache2/sites-available
+rm 000-default.conf
+wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/xLaravel-LAMPstack-Setup/Laravel-Apache2-000-default.conf -O 000-default.conf
+
+
 # dont forget to restart webserver service
 sudo a2enmod rewrite
 sudo service apache2 restart
