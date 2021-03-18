@@ -58,6 +58,6 @@ sudo ls -n /etc/nginx/sites-available/000-default.conf /etc/nginx/sites-enables/
 # restart webserver
 service nginx restart
 
-# create mysql user
+# create mysql user,,.
 
 
