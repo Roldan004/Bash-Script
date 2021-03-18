@@ -55,6 +55,7 @@ cd
 
 mv laravel /var/www/html
 
+cd /var/www/html/laravel
 #go to file /var/
 
 # deploy laravel via composer
@@ -65,8 +66,8 @@ sudo composer install
 
 
 # proper permissions for laravel files
-chmod -R 775 /var/www/html/laravel
-chown -R www-data:www-data /var/www/html/laravel
+sudo chmod -R 775 /var/www/html/laravel
+sudo chown -R www-data:www-data /var/www/html/laravel
 
 #config nginx
 #sudo ln -s /etc/nginx/sites-available/ .conf
@@ -83,6 +84,15 @@ sudo php artisan key:generate
 
 # edit .env APP_KEY looks something like this
 #APP_KEY=base64:HFdS7c9rhDp+AeHu7kc2OLBPuxHqq2BQ/1gfFWEpoAk=
+
+cd
+cd /etc/apache2/sites-available
+sudo rm default
+sudo wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/Laravel-LEMP-Setup/Laravel-Nginx.conf-O 000-default.conf
+cd ..
+sudo rm /sites-enable/default
+ln -s /etc/nginx/sites-available/000-default.conf /etc/nginx/sites-enabled/000-default.conf
+
 
 
 sudo service nginx restart
