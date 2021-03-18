@@ -85,7 +85,7 @@ sudo service php7.2-fpm restart
 #APP_KEY=base64:HFdS7c9rhDp+AeHu7kc2OLBPuxHqq2BQ/1gfFWEpoAk=
 
 cd
-cd /etc/nginx/sites-available
+cd /etc/apache2/sites-available
 sudo rm 000-default.conf
 sudo wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/xLaravel-LAMPstack-Setup/Laravel-Apache2-000-default.conf -O 000-default.conf
 cd
