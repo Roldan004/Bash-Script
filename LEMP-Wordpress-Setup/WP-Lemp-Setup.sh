@@ -36,8 +36,7 @@ curl -sS https://getcomposer.org/installer -o composer-setup.php
 sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 # replace config in webserver
-sudo su
-wget https://wordpress.org/latest.tar.gz  
+sudo wget https://wordpress.org/latest.tar.gz  
 tar -xzvf latest.tar.gz
 
 mv wordpress /var/www/html/
@@ -46,17 +45,21 @@ chown -R www-data:www-data /var/www/html/wordpress
 
 
 cd /etc/nginx/sites-available
-rm default
-wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/LEMP-Wordpress-Setup/wp-lemp.conf -O 000-default.conf
-cd ..
-sudo rm sites-enabled/default
 cd
+sudo unlink /etc/nginx/sites-enabled/default
+sudo unlink /etc/nginx/sites-available/default
+cd /etc/nginx/sites-available
+sudo wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/LEMP-Wordpress-Setup/wp-lemp.conf -O 000-default.conf
 
 #sym-link
-sudo ls -n /etc/nginx/sites-available/000-default.conf /etc/nginx/sites-enables/000-default.conf
+sudo ln -s /etc/nginx/sites-available/000-default.conf /etc/nginx/sites-enabled/000-default.conf
+
+
+sudo service nginx reload
+
 
 # restart webserver
-service nginx restart
+sudo service nginx restart
 
 # create mysql user,,.
 
