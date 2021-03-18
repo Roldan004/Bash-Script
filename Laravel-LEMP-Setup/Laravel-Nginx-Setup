@@ -49,7 +49,8 @@ sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 # deploy laravel via git
 sudo git clone https://github.com/laravel/laravel.git
 cd laravel
-sudo git checkout -b origin/7.x
+sudo git checkout origin/7.x
+sudo git checkout -b 7.x
 cd
 
 mv laravel /var/www/html
