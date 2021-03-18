@@ -54,6 +54,14 @@ Vagrant.configure("2") do |config|
     sudo apt install php-pear php-mongodb -y
     sudo apt install mongodb -y
 
+    
+    # create mysql user
+    mysql -uroot -p'admin' -e "create database yii2advanced;"
+    mysql -uroot -p'admin' -e "grant all privileges on *.* to root@localhost identified by '';"
+    
+    sudo service mysql restart
+    
+
     # composer
     echo 'composer installation...'
     cd ~
@@ -62,10 +70,10 @@ Vagrant.configure("2") do |config|
 
     # fetch yii2 adv
     echo 'setting up yii2...'
-      wget https://github.com/yiisoft/yii2/releases/download/2.0.40/yii-advanced-app-2.0.40.tgz
+    sudo wget https://github.com/yiisoft/yii2/releases/download/2.0.40/yii-advanced-app-2.0.40.tgz
 
     # extract
-    tar -xvzf yii-advanced-app-2.0.40.tgz
+    sudo tar -xvzf yii-advanced-app-2.0.40.tgz
 
     echo 'moving project to web directory..'
     # move files to web dir
@@ -80,10 +88,12 @@ Vagrant.configure("2") do |config|
     echo 'setup apache2 config for yii2..'
     sudo su
       cd /etc/apache2/sites-available
-    rm 000-default.conf
-    wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/YII2-LAMP-Setup/Yii2-Lamp-000-default.conf -O 000-default.conf
-    a2enmod rewrite
+    sudo rm 000-default.conf
+    sudo wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/YII2-LAMP-Setup/Yii2-Lamp-000-default.conf -O 000-default.conf
+    sudo a2enmod rewrite
     
+    
+    sudo service apache2 restart
     #note: put comment the rewrite before ssl in apache2 configuration
     
     #Install certbot
@@ -98,26 +108,23 @@ Vagrant.configure("2") do |config|
     
     #config the yii2 file
     #cd /var/www/html/advanced
-    php init > 0 > yes
+    sudo php init
    
     #Config the main-local.php
-    #sudo nano common/config/main-local.php
+    sudo nano common/config/main-local.php
+    
+    
+    # migrate
+    sudo php yii migrate
 
-
-    # restart webserver
-    service apache2 restart
+   
     
-    
-    # create mysql user
-    mysql -uroot -p'admin' -e "create database yii2advanced;"
-    mysql -uroot -p'admin' -e "grant all privileges on *.* to root@localhost identified by '';"
-    
-   service mysql restart
+   
     
     #start site
     
-    sudo /etc/init.d/apache2 restart.
-    service apache2 restart
+    sudo /etc/init.d/apache2 restart
+    sudo service apache2 restart
     
     
     #a2enmod rewrite
