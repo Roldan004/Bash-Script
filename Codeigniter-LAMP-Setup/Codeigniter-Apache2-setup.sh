@@ -46,7 +46,7 @@ echo 'setup apache2 config for codeigniter..'
 sudo su
 cd /etc/apache2/sites-available
 rm 000-default.conf
-wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/Codeigniter-LAMP-Setup/code.i-000-default.conf?token=AR4IM3BIDCKAZONIBVS67NLAKHE7E -O 000-default.conf
+wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/Codeigniter-LAMP-Setup/code.i-000-default.conf -O 000-default.conf
 a2enmod rewrite
 
 # restart webserver
