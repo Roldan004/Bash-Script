@@ -55,10 +55,6 @@ cd
 
 mv laravel /var/www/html
 
-# proper permissions for laravel files
-chmod -R 775 /var/www/html/laravel
-chown -R www-data:www-data /var/www/html/laravel
-
 #go to file /var/
 
 # deploy laravel via composer
@@ -68,11 +64,14 @@ sudo composer create-project --prefer-dist laravel/laravel project
 sudo composer install
 
 
+# proper permissions for laravel files
+chmod -R 775 /var/www/html/laravel
+chown -R www-data:www-data /var/www/html/laravel
 
 #config nginx
 #sudo ln -s /etc/nginx/sites-available/ .conf
 #sudo nano /etc/php7.2/fpm/php.ini     (cgi.fix = 0)
-#sudo service php7.2-fpm restart
+sudo service php7.2-fpm restart
 
 
 
@@ -83,16 +82,17 @@ sudo cp .env.example .env
 sudo php artisan key:generate
 
 # edit .env APP_KEY looks something like this
-APP_KEY=base64:HFdS7c9rhDp+AeHu7kc2OLBPuxHqq2BQ/1gfFWEpoAk=
+#APP_KEY=base64:HFdS7c9rhDp+AeHu7kc2OLBPuxHqq2BQ/1gfFWEpoAk=
 
 
+sudo service nginx restart
 # point the configuration path in public
 #/var/www/html/laravel/public
 ================================
-sudo mysql -u root -p <myQuery
-  CREATE USER 'bindapp'@'localhost' identified by 'bindapp123!@#';
-  GRANT ALL PRIVILEGES ON *.* to 'bindapp'@'localhost';
-  DROP USER ''@'localhost'
-  DROP DATABASE test
-  FLUSH PRIVILEGES;
-myQuery
+#sudo mysql -u root -p <myQuery
+#  CREATE USER 'bindapp'@'localhost' identified by 'bindapp123!@#';
+#  GRANT ALL PRIVILEGES ON *.* to 'bindapp'@'localhost';
+#  DROP USER ''@'localhost'
+#  DROP DATABASE test
+#  FLUSH PRIVILEGES;
+#myQuery
