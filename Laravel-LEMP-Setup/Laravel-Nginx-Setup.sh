@@ -91,7 +91,7 @@ sudo unlink /etc/nginx/sites-available/default
 cd /etc/nginx/sites-available
 sudo wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/Laravel-LEMP-Setup/Laravel-Nginx.conf-O 000-default.conf
 cd
-ln -s /etc/nginx/sites-available/000-default.conf /etc/nginx/sites-enabled/000-default.conf
+sudo ln -s /etc/nginx/sites-available/000-default.conf /etc/nginx/sites-enabled/000-default.conf
 
 
 
