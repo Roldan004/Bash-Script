@@ -93,6 +93,8 @@ sudo wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/Laravel-L
 cd
 sudo ln -s /etc/nginx/sites-available/000-default.conf /etc/nginx/sites-enabled/000-default.conf
 
+sudo service reload
+
 
 
 sudo service nginx restart
