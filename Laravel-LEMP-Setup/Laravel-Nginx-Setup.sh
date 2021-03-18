@@ -86,11 +86,11 @@ sudo php artisan key:generate
 #APP_KEY=base64:HFdS7c9rhDp+AeHu7kc2OLBPuxHqq2BQ/1gfFWEpoAk=
 
 cd
-cd /etc/apache2/sites-available
-sudo rm default
+sudo unlink /etc/nginx/sites-enabled/default
+sudo unlink /etc/nginx/sites-available/default
+cd /etc/nginx/sites-available
 sudo wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/Laravel-LEMP-Setup/Laravel-Nginx.conf-O 000-default.conf
-cd ..
-sudo rm /sites-enable/default
+cd
 ln -s /etc/nginx/sites-available/000-default.conf /etc/nginx/sites-enabled/000-default.conf
 
 
