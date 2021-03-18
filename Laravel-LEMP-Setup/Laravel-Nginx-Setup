@@ -88,7 +88,7 @@ APP_KEY=base64:HFdS7c9rhDp+AeHu7kc2OLBPuxHqq2BQ/1gfFWEpoAk=
 
 # point the configuration path in public
 #/var/www/html/laravel/public
-
+================================
 sudo mysql -u root -p <myQuery
   CREATE USER 'bindapp'@'localhost' identified by 'bindapp123!@#';
   GRANT ALL PRIVILEGES ON *.* to 'bindapp'@'localhost';
