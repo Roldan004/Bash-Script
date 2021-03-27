@@ -21,7 +21,7 @@ sudo apt install php7.2 -y
 sudo apt install git unzip curl -y
 
 # install php modules
-sudo apt install php7.2-bcmath php7.2-curl php7.2-dev php7.2-fpm php7.2-gd php7.2-intl php7.2-mbstring php7.2-xml php7.2-zip php7.2-mysql php-cli libapache2-mod-php php7.2-dev php7.2-fpm -y
+sudo apt install php7.2-bcmath php7.2-curl php7.2-dev php7.2-fpm php7.2-gd php7.2-intl php7.2-mbstring php7.2-xml php7.2-zip php7.2-mysql php-cli php7.2-dev php7.2-fpm -y
 
 
 # remove apache content
