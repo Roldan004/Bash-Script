@@ -104,7 +104,7 @@ sudo nano /etc/zabbix/zabbix_agentd.psk
 sudo chmod 755 /etc/zabbix/zabbix_agentd.psk
 
 # get the PSK Code and put on zabbix server
-sudo cat /etc /zabbix/zabbix_agentd.psk
+sudo cat /etc/zabbix/zabbix_agentd.psk
 
 # Edit the agentd configuration
 sudo nano /etc/zabbix/zabbix_agentd.conf
