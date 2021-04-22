@@ -85,6 +85,8 @@ sudo php artisan key:generate
 # edit .env APP_KEY looks something like this
 #APP_KEY=base64:HFdS7c9rhDp+AeHu7kc2OLBPuxHqq2BQ/1gfFWEpoAk=
 
+#Config .env for database configuration#
+
 cd
 sudo unlink /etc/nginx/sites-enabled/default
 sudo unlink /etc/nginx/sites-available/default
