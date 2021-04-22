@@ -109,10 +109,11 @@ sudo cat /etc /zabbix/zabbix_agentd.psk
 # Edit the agentd configuration
 sudo nano /etc/zabbix/zabbix_agentd.conf
 
-          Server=wordpress-monitoring.lbteksystems.com
+          Server=45.77.253.127
           ListenIP=10050
-          ServerActive=wordpress-monitoring.lbteksystems.com
-          Hostname=wisemeninsurance.ph
+          ListenIP=0.0.0.0
+          Server=45.77.253.127
+          #Hostname=Zabbix server
           
           
           TLSConnect=psk
