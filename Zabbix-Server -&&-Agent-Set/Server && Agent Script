@@ -100,6 +100,10 @@ sudo psktool -u zabbix -p /etc/zabbix/zabbix_agentd.psk -s 32
 # Remove the zabbix on the pre-shared key
 sudo nano /etc/zabbix/zabbix_agentd.psk
 
+
+# insert this .psk key
+#   c42a77ff665118f0a291c7bb9bf4a41498577acf1657220a8e49c2c5bf449b5d
+
 # Permission
 sudo chmod 755 /etc/zabbix/zabbix_agentd.psk
 
@@ -112,7 +116,7 @@ sudo nano /etc/zabbix/zabbix_agentd.conf
           Server=45.77.253.127
           ListenIP=10050
           ListenIP=0.0.0.0
-          Server=45.77.253.127
+          ServerActive=45.77.253.127
           #Hostname=Zabbix server
           
           
