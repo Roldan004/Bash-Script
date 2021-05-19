@@ -48,7 +48,6 @@ cd /etc/nginx/sites-available
 cd
 sudo unlink /etc/nginx/sites-enabled/default
 sudo unlink /etc/nginx/sites-available/default
-cd /etc/nginx/sites-available
 sudo wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/LEMP-Wordpress-Setup/wp-lemp.conf -O 000-default.conf
 
 #sym-link
