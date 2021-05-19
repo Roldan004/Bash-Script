@@ -19,8 +19,8 @@ sudo apt install php7.2 -y
 
 
 # remove apache content
-sudo apt-get purge apache2
-sudo apt-get autoremove
+sudo apt-get purge apache2 -y
+sudo apt-get autoremove -y
 
 # install some good tools
 sudo apt install git unzip curl -y
