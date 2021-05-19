@@ -39,9 +39,9 @@ sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 sudo wget https://wordpress.org/latest.tar.gz  
 tar -xzvf latest.tar.gz
 
-mv wordpress /var/www/html/
-chmod -R 775 /var/www/html/wordpress
-chown -R www-data:www-data /var/www/html/wordpress
+sudo mv wordpress /var/www/html/
+sudo chmod -R 775 /var/www/html/wordpress
+sudo chown -R www-data:www-data /var/www/html/wordpress
 
 
 cd /etc/nginx/sites-available
