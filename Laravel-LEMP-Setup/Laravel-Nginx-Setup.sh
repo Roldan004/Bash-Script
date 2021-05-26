@@ -26,12 +26,14 @@ sudo apt install mysql-server mysql-client -y
 #Install & Setup PHP
 sudo apt install php7.2 -y
 
-#remove package data of apache2 in Php
-sudo apt-get purge apache2 -y
-sudo apt-get autoremove -y
 
 #install modules
 sudo apt install php7.2-bcmath php7.2-curl php7.2-dev php7.2-fpm php7.2-gd php7.2-intl php7.2-mbstring php7.2-xml php7.2-zip php7.2-mysql php-cli libapache2-mod-php php7.2-dev php7.2-fpm -y
+
+
+#remove package data of apache2 in Php
+sudo apt-get purge apache2 -y
+sudo apt-get autoremove -y
 
 
 #Create information file
@@ -65,10 +67,6 @@ sudo composer create-project --prefer-dist laravel/laravel project
 sudo composer install
 
 
-# proper permissions for laravel files
-sudo chmod -R 775 /var/www/html/laravel
-sudo chown -R www-data:www-data /var/www/html/laravel
-
 #config nginx
 #sudo ln -s /etc/nginx/sites-available/ .conf
 #sudo nano /etc/php7.2/fpm/php.ini     (cgi.fix = 0)
@@ -86,6 +84,13 @@ sudo php artisan key:generate
 #APP_KEY=base64:HFdS7c9rhDp+AeHu7kc2OLBPuxHqq2BQ/1gfFWEpoAk=
 
 #Config .env for database configuration#
+
+
+# proper permissions for laravel files
+sudo chmod -R 775 /var/www/html/laravel
+sudo chown -R www-data:www-data /var/www/html/laravel
+
+
 
 cd
 sudo unlink /etc/nginx/sites-enabled/default
