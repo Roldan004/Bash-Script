@@ -69,7 +69,7 @@ sudo composer install
 
 #config nginx
 #sudo ln -s /etc/nginx/sites-available/ .conf
-#sudo nano /etc/php7.2/fpm/php.ini     (cgi.fix = 0)
+#sudo nano /etc/php/7.2/fpm/php.ini     (cgi.fix = 0)
 sudo service php7.2-fpm restart
 
 
