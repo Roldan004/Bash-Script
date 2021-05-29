@@ -22,7 +22,7 @@ sudo chown nobody:nogroup /mnt/nfs_share/
 
 #set permission
 #Since we want all the client machines to access the shared directory, remove any restrictions in the directory permissions.
-sudo chmod 777 /mnt/nfs_share/
+sudo chmod 7775 /mnt/nfs_share/
 
 
 #config file for nfs-server
