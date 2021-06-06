@@ -117,7 +117,7 @@ sudo nano /etc/zabbix/zabbix_agentd.conf
           ListenIP=10050
           ListenIP=0.0.0.0
           ServerActive=45.77.253.127
-          #Hostname=Zabbix server
+          Hostname=Zabbix server (Any name that will sync zabbix & the website conn)
           
           
           TLSConnect=psk
