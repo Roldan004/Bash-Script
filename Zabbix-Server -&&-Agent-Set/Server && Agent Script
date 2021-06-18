@@ -119,11 +119,11 @@ sudo nano /etc/zabbix/zabbix_agentd.conf
           ServerActive=45.77.253.127
           Hostname=Zabbix server (Any name that will sync zabbix & the website conn)
           
-          
-          TLSConnect=psk
-          TLSAccept=psk
-          TLSPSKIdentity=zabbix
-          TLSPSKFile=/etc/zabbix/zabbix_agentd.psk
+# Assign @ the bottom #
+TLSConnect=psk
+TLSAccept=psk
+TLSPSKIdentity=zabbix
+TLSPSKFile=/etc/zabbix/zabbix_agentd.psk
 
 
 # restart
