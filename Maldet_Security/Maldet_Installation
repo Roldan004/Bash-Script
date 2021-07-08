@@ -1,0 +1,27 @@
+# Go to the location
+cd /usr/src
+
+# Install Maldet
+wget https://www.rfxn.com/downloads/maldetect-current.tar.gz
+
+# Uncompress
+tar -xzvf maldetect-current.tar.gz
+
+# Go to file
+cd maldetect-1.6.4.
+
+# Activate the security
+sh install.sh
+
+# Setup the configuration
+nano /usr/local/maldetect/conf.maldet
+
+        email_alert="1"
+        email_addr="you@domain.com"
+        scan_clamscan="1"
+        
+# Scan the location of file
+maldet -a /var/www/html/
+
+# View Report hit/clean
+maldet --report
