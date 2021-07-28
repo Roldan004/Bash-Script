@@ -49,7 +49,7 @@ cd /etc/nginx/sites-available
 cd
 sudo unlink /etc/nginx/sites-enabled/default
 sudo unlink /etc/nginx/sites-available/default
-sudo wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/LEMP-Wordpress-Setup/wp-lemp.conf -O 000-default.conf
+sudo wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/Laravel-LEMP-Setup/Laravel-Nginx.conf
 
 #sym-link
 sudo ln -s /etc/nginx/sites-available/000-default.conf /etc/nginx/sites-enabled/000-default.conf
