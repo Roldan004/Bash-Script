@@ -7,7 +7,6 @@ sudo apt update -y
 
 echo "let's upgrade all our resources..."
 sudo apt upgrade -y
-sudo apt update -y
 
 echo "installing webserver..."
 sudo apt install apache2 -y
