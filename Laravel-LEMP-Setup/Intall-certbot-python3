@@ -1,0 +1,5 @@
+  112  apt install python3-certbot python3-certbot-nginx
+  113  certbot --nginx -d paynets.net -d www.paynets.net
+  114  nano /etc/nginx/sites-available/paynets.net 
+  115  service nginx reload
+  116  certbot --nginx -d paynets.net -d www.paynets.net
