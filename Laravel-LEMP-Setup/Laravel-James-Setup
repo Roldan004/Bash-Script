@@ -1,0 +1,138 @@
+   1  wget https://bitbucket.org/19azrael68/bash/raw/3214b00d19cce92aa54eb8ea263a7ca4434b3fa1/lemp/php-72.sh | bash -
+    2  curl --user 19azrael68 https://bitbucket.org/19azrael68/bash/raw/3214b00d19cce92aa54eb8ea263a7ca4434b3fa1/lemp/php-72.sh | bash -
+    3  curl --header "PRIVATE-TOKEN: YUVsxLyVxHMNkN65YaUQ" https://pipeline.lbteksystems.com/api/v4/projects/34/repository/files/server/ubuntu/optimize.sh/raw?ref=master | bash
+    4  ls
+    5  bash <(curl -s https://pipeline.lbteksystems.com/alfredvalderrama/devops-magic/-/raw/master/server/ubuntu/optimize.sh?private_token=YUVsxLyVxHMNkN65YaUQ)
+    6  curl --user 19azrael68 https://bitbucket.org/19azrael68/bash/raw/3214b00d19cce92aa54eb8ea263a7ca4434b3fa1/ubuntu/optimize.sh | bash -
+    7  cd /etc/nginx/
+    8  ls
+    9  cd sites-available/
+   10  ls
+   11  nano default 
+   12  cd ..
+   13  ls
+   14  cd conf,d
+   15  cd conf.d
+   16  ls
+   17  cp default.conf /etc/nginx/sites-enabled/paynets.net
+   18  ls
+   19  cd ../sites-available/
+   20  ls
+   21  cd ../sites-enabled/
+   22  ls
+   23  rm paynets.net 
+   24  ls
+   25  cd ..
+   26  ls
+   27  cd sites-available/
+   28  ls
+   29  cp /etc/nginx/conf.d/default.conf /etc/nginx/sites-available
+   30  ls
+   31  rm default.conf 
+   32  cp /etc/nginx/conf.d/default.conf /etc/nginx/sites-available/paynets.net
+   33  ls
+   34  nano paynets.net 
+   35  mkdir /var/www/html
+   36  chown www-data:www-data /var/www/paynets -R
+   37  cp /etc/nginx/conf.d/default.conf /etc/nginx/sites-available/paynets.net
+   38  sed "s/server_name _/server_name paynets.net/g" /etc/nginx/sites-available/paynets.net
+   39  sed "s/www\/html/www\/paynets/g" /etc/nginx/sites-available/paynets.net
+   40  ls
+   41  mkdir /var/www/html
+   42  chown www-data:www-data /var/www/paynets -R
+   43  cp /etc/nginx/conf.d/default.conf /etc/nginx/sites-available/paynets.net
+   44  sed "s/server_name _/server_name paynets.net/g" /etc/nginx/sites-available/paynets.net
+   45  sed "s/www\/html/www\/paynets/g" /etc/nginx/sites-available/paynets.net
+   46  ls
+   47  nano paynets.net 
+   48  sed -i "s/server_name _/server_name paynets.net/g" /etc/nginx/sites-available/paynets.net
+   49  sed -i "s/www\/html/www\/paynets/g" /etc/nginx/sites-available/paynets.net
+   50  nano paynets.net 
+   51  ln -s /etc/nginx/sites-available/paynets.net /etc/nginx/sites-enabled/
+   52  service nginx reload
+   53  ls
+   54  cd ../sites-enabled/
+   55  ls
+   56  echo "Paynets" > /var/www/html/index.html
+   57  cd ~
+   58  curl -sS https://getcomposer.org/installer -o composer-setup.php
+   59  sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+   60  cd /var/www
+   61  ls
+   62  mkdir paynets
+   63  ls
+   64  chown www-data:www-data /var/www/paynets -R
+   65  service nginx reload
+   66  cd html
+   67  ls
+   68  cd ..
+   69  cd html
+   70  l
+   71  cd ..
+   72  ls
+   73  cd paynets/
+   74  ls
+   75  composer create-project --prefer-dist laravel/laravel project
+   76  ls
+   77  cd project/
+   78  ls
+   79  mv * ../
+   80  cd ..
+   81  ls
+   82  rm -rf project/
+   83  rm -rf *
+   84  composer create-project --prefer-dist laravel/laravel .
+   85  rm -rf *
+   86  composer create-project --prefer-dist laravel/laravel .
+   87  composer create-project --prefer-dist laravel/laravel ./
+   88  composer create-project --prefer-dist laravel/laravel
+   89  cd ..
+   90  ls
+   91  composer create-project --prefer-dist laravel/laravel paynets
+   92  ls
+   93  cd paynets/
+   94  ls
+   95  composer install
+   96  chown -R www-data:www-data /var/www/paynets
+   97  chmod -R 775 /var/www/paynets
+   98  chmod -R 777 /var/www/paynets/storage
+   99  mv .env.example .env
+  100  php artisan key:generate
+  101  service nginx restart
+  102  service nginx status
+  103  cd /etc/nginx/conf.d/
+  104  ls
+  105  nano default.conf 
+  106  service nginx restart
+  107  nano default.conf 
+  108  service nginx restart
+  109  nano ../sites-available/
+  110  nano ../sites-available/paynets.net 
+  111  service nginx reload
+  112  apt install python3-certbot python3-certbot-nginx
+  113  certbot --nginx -d paynets.net -d www.paynets.net
+  114  nano /etc/nginx/sites-available/paynets.net 
+  115  service nginx reload
+  116  certbot --nginx -d paynets.net -d www.paynets.net
+  117  HISTORY
+  118  history
+  119  cd /var/www/
+  120  ls
+  121  cd paynets/
+  122  ls
+  123  git config —get remote.origin.url
+  124  ls
+  125  ls -la
+  126  git config —get remote.origin.url
+  127  cd /etc/nginx/
+  128  ls
+  129  cd sites-available/
+  130  ls
+  131  nano paynets.net 
+  132  htop
+  133  cd /etc/nginx/
+  134  ls
+  135  cd sites-available/
+  136  ls
+  137  cat paynets.net 
+  138  history
