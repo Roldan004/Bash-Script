@@ -1,0 +1,17 @@
+  # Title: Web SSL
+  # Author : Rorudan
+  # Deploy : 10032021-1247
+
+
+
+# Install certbot in techstack
+apt install python3-certbot python3-certbot-nginx
+
+# Execute the script
+certbot --nginx -d <domain.com> -d <www.domain.com>
+
+# Sample
+# certbot --nginx -d paynets.net -d www.paynets.net
+
+service nginx reload
+service nginx restart
