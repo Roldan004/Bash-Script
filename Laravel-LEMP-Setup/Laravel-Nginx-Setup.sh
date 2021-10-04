@@ -1,8 +1,7 @@
 #!/bin/bash
-#
-#
-#LEMP Stack Installation
-#
+# Title : LEMP Stack Installation
+# Author : Rorudan
+# Date: 2020
 
 #Install git, curl, unzip
 sudo apt install unzip curl git -y
