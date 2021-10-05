@@ -101,7 +101,7 @@ sudo ln -s /etc/nginx/sites-available/000-default.conf /etc/nginx/sites-enabled/
 
 
 # Install certbot in techstack
-apt install python3-certbot python3-certbot-nginx
+apt install python3-certbot python3-certbot-nginx -y
 
 # Execute the script
 certbot --nginx -d <domain.com> -d <www.domain.com>
