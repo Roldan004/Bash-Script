@@ -99,11 +99,20 @@ sudo wget https://raw.githubusercontent.com/Roldan004/Bash-Script/main/Laravel-L
 cd
 sudo ln -s /etc/nginx/sites-available/000-default.conf /etc/nginx/sites-enabled/000-default.conf
 
-sudo service reload
+
+# Install certbot in techstack
+apt install python3-certbot python3-certbot-nginx
+
+# Execute the script
+certbot --nginx -d <domain.com> -d <www.domain.com>
+
+# Sample
+# certbot --nginx -d paynets.net -d www.paynets.net
+
+service nginx reload
+service nginx restart
 
 
-
-sudo service nginx restart
 # point the configuration path in public
 #/var/www/html/laravel/public
 ================================
