@@ -4,7 +4,7 @@
 # Date: 2020
 
 #Install git, curl, unzip
-sudo apt install unzip curl git -y
+sudo apt install git curl unzip -y
 
 #Add Universal
 sudo add-apt-repository universe
